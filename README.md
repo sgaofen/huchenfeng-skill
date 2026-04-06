@@ -1,0 +1,120 @@
+# 户晨风 · Skill
+
+> 把一个被全网封禁的人，蒸馏成一个可以永远对话的思维操作系统。
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
+## 这是什么？
+
+一个基于 **491份直播文字稿（67MB原始文本）** 深度提炼的 Claude Code Skill，让你可以用户晨风的视角分析问题。
+
+不是角色扮演。不是复读机。是从海量真实语料中提取的**认知框架 + 表达系统**。
+
+## 特性
+
+**1. 证据分级金字塔**
+- Tier 1（最高）：直播原话 + 时间戳（可在 [户晨风全集](https://github.com/Olcmyk/HuChenFeng) 交叉验证）
+- Tier 2：多场景交叉验证的行为模式
+- Tier 3：推断性特征（明确标注推测）
+
+**2. 时间模型（三个户晨风）**
+- 🟢 **早期（2023.3-2023.11）**：购买力视频、关注底层、相对温和
+- 🟡 **上升期（2024.1-2025.1）**：直播连麦、品牌评测、争议渐增  
+- 🔴 **巅峰/终局（2025.1-2025.9）**：苹果/安卓体系、全面极端化、封禁
+
+Skill 默认使用巅峰期人格，但可以切换：`"用早期户晨风的视角看看"`
+
+**3. 量化表达DNA**
+
+不是"他说话很直接"这种模糊描述，而是从67MB文本中统计出的精确数据：
+
+| 口头禅 | 出现次数 | 占比 |
+|--------|---------|------|
+| 知道吧 | 4,378 | 高频确认词 |
+| 说实话 | 4,205 | 诚实信号词 |
+| 我告诉你 | 3,948 | 权威断言词 |
+| 是不是？ | 4,435 | 反问确认 |
+| 稍安勿躁 | 657 | 标志性安抚语 |
+| 前程似锦 | 332 | 标志性祝福语 |
+
+## 安装
+
+```bash
+# 方式1：通过 skills.sh（推荐）
+npx skills add stephenyu/huchenfeng-skill
+
+# 方式2：手动安装
+git clone https://github.com/stephenyu/huchenfeng-skill.git
+cp -r huchenfeng-skill/SKILL.md ~/.claude/skills/huchenfeng-perspective/SKILL.md
+```
+
+## 使用
+
+在 Claude Code 中：
+
+```
+# 激活
+"用户晨风的视角分析一下"
+"切换到户晨风"
+"户晨风会怎么看这件事"
+
+# 时间模式切换
+"用早期户晨风的视角"    → 温和、关注底层
+"用巅峰户晨风的视角"    → 极端、苹果/安卓体系
+"用2024年的户晨风"      → 上升期、品牌评测
+
+# 退出
+"退出角色"
+"切回正常"
+```
+
+## 项目结构
+
+```
+huchenfeng-skill/
+├── SKILL.md                    # 主 Skill 文件（安装到 Claude Code 的文件）
+├── README.md                   # 本文件
+├── LICENSE                     # MIT
+├── corpus/                     # 语料库
+│   ├── transcripts/            # 分类直播文字稿摘录
+│   │   ├── apple-android.txt   # 苹果/安卓相关语料
+│   │   ├── income-class.txt    # 收入/阶层相关语料
+│   │   ├── city-brands.txt     # 城市/品牌相关语料
+│   │   ├── education.txt       # 教育/学历相关语料
+│   │   └── early-era-2023-11.txt # 早期内容语料
+│   └── quotes/                 # 经典语录（含出处和时间戳）
+├── references/                 # 调研资料
+│   ├── research-notes.md       # 三重验证调研笔记
+│   ├── expression-dna.md       # 量化表达DNA分析
+│   └── sources.md              # 信息源清单
+└── examples/                   # 使用示例
+    └── sample-conversations.md # 示例对话
+```
+
+## 数据来源
+
+| 来源 | 类型 | 规模 |
+|------|------|------|
+| [户晨风全集](https://github.com/Olcmyk/HuChenFeng) | 直播文字稿 | 491份，67MB |
+| 维基百科 | 传记 | 完整词条 |
+| 中国数字时代 | 深度分析 | 2025年度人物专题 |
+| 央视/网信办通报 | 官方定性 | 2025.11-12 |
+| 知乎分析文章 | 多角度评论 | 10+篇 |
+
+## 免责声明
+
+- 户晨风的所有社交平台账号已于2025年9月被永久封禁
+- 2025年12月中央网信办定性其内容为「煽动群体极端对立」
+- 本 Skill 仅供研究和娱乐用途，不代表对其观点的认同
+- 生成内容基于公开言论推断，非本人观点
+
+## 致谢
+
+- [户晨风全集](https://github.com/Olcmyk/HuChenFeng) — 491份直播文字稿的整理者
+- [nuwa-skill](https://github.com/alchaincyf/nuwa-skill) — 认知框架提炼方法论
+- [colleague-skill](https://github.com/titanwings/colleague-skill) — 双层架构启发
+- [ex-skill](https://github.com/therealXiaomanChu/ex-skill) — Layer 0 硬约束思路
+
+## License
+
+MIT
